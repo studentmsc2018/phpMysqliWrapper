@@ -55,7 +55,7 @@ Class mysqliWrapper {
     }
  
     public function q($query) {
-        if ($query = $this->_mysqli->prepare($query)) {
+        if ($query = $this->_mysqli->prepare(mysql_escape_string($query))) {
             if (func_num_args() > 1) {
                 $x = func_get_args();
                 $args = array_merge(array(func_get_arg(1)),
